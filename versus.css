@@ -1,92 +1,95 @@
 .sides {
-  animation: 0.7s curtain cubic-bezier(0.86, 0, 0.07, 1) 0.4s both;
-
-  display: grid;
-  grid-template-columns: 50vw 50vw;
+    animation: 0.7s curtain cubic-bezier(0.86, 0, 0.07, 1) 0.4s both;
+    display: grid;
+    grid-template-columns: 50vw 50vw;
 }
 
 @keyframes curtain {
-  0% {
-    grid-gap: 100vw;
-  }
-
-  100% {
-    grid-gap: 0;
-  }
+    0% {
+        grid-gap: 100vw;
+    }
+    100% {
+        grid-gap: 0;
+    }
 }
 
 html,
 body {
-  height: 100%;
-  margin: 0;
-  font-family: "Arial Black", sans-serif;
+    height: 100%;
+    margin: 0;
+    font-family: "Arial Black", sans-serif;
 }
 
 .intro {
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 .sides {
-  position: relative;
+    position: relative;
 }
 
 .side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  font-size: 6vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 6vw;
 }
 
 .monkey {
-  background-color: #dcc9a1;
-  color: #534325;
+    background-color: #dcc9a1;
+    color: #534325;
 }
 
 .robot {
-  background-color: #1b636f;
-  color: #ffffff;
-  flex-direction: column-reverse;
+    background-color: #1b636f;
+    color: #ffffff;
+    flex-direction: column-reverse;
 }
 
 .name {
-  margin: 0.3em;
+    margin: 0.3em;
 }
 
 .emoji {
-  font-size: 3em;
+    font-size: 3em;
 }
 
-.emoji img{
+.emoji img {
     max-width: 225px;
 }
 
 .versus {
-  position: absolute;
-  width: 8vw;
-  height: 8vw;
-  background: #ffffff;
-  border-radius: 50%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  margin: auto;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3.4vw;
-  color: #123456;
-  border-width: 10px;
-  border-style: solid;
-  border-color: #1b636f #dcc9a1 #dcc9a1 #1b636f;
-  transform: rotate(-45deg);
+    position: absolute;
+    width: 13vw;
+    height: 13vw;
+    background: #ffffff;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.4vw;
+    color: #123456;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #1b636f #dcc9a1 #dcc9a1 #1b636f;
+    transform: rotate(-45deg);
+}
+
+.versus img {
+    max-width: 167px;
+    border-radius: 72px;
+    overflow: hidden;
 }
 
 .versus span {
-  transform: rotate(35deg);
+    transform: rotate(35deg);
 }
