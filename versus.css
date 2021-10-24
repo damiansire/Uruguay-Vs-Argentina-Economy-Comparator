@@ -81,7 +81,11 @@ body {
     border-width: 10px;
     border-style: solid;
     border-color: #1b636f #dcc9a1 #dcc9a1 #1b636f;
-    transform: rotate(-45deg);
+    transition: .5s
+}
+
+.versus:hover {
+    transform: scale(1.1) rotate(360deg);
 }
 
 .versus img {
