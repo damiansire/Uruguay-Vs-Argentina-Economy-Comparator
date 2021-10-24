@@ -60,6 +60,10 @@ body {
   font-size: 3em;
 }
 
+.emoji img{
+    max-width: 225px;
+}
+
 .versus {
   position: absolute;
   width: 8vw;
