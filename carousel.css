@@ -1,0 +1,59 @@
+.global {
+    position: relative;
+}
+
+.btn {
+    position: absolute;
+    background-color: lightgrey;
+    transform: translate(0, -50%);
+    border-radius: 50%;
+    border: 1px solid lightcoral;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: grey;
+    border-color: black;
+    color: white;
+}
+
+.prev {
+    top: 50%;
+    left: 10px;
+}
+
+.next {
+    top: 50%;
+    left: 760px;
+}
+
+.carousel-wrap {
+    position: relative;
+    background-color: NavajoWhite;
+    width: 800px;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.carousel {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 9999px;
+    height: 200px;
+}
+
+.carousel-item {
+    float: left;
+    height: 200px;
+    width: 200px;
+    background-color: Cornsilk;
+    border: 1px solid black;
+    text-align: center;
+    padding-top: 80px;
+    font-size: 20px;
+}
