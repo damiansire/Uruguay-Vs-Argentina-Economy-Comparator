@@ -1,0 +1,144 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #244b7b;
+}
+
+.app-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+.app-container h1 {
+  width: 70vw;
+  padding: 10px;
+  margin-left: 20px;
+  color: #F8F8F8;
+}
+.app-container h4 {
+  width: 70vw;
+  padding: 0px 10px;
+  margin-top: -20px;
+  margin-left: 20px;
+  color: #8acbff;
+}
+.app-container p {
+  color: #F8F8F8;
+}
+.app-container p a {
+  color: #fff399;
+  text-decoration: none;
+}
+.app-container p a:hover {
+  text-decoration: underline;
+}
+
+.card {
+  border: 1px solid #102a49;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px #102a49;
+  background: #102a49;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+  flex: 1 1 45%;
+  min-width: 320px;
+  margin: 10px;
+  transition: 0.5s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+.card-container{
+    display: flex;
+}
+
+.coin-data {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.coin-data p:nth-child(1){
+    margin-bottom: 13px;
+    font-size: 1.3em;
+}
+
+.coin-data p:nth-of-type(2)
+{
+    margin-top: 0;
+    margin-bottom: 0.6em;
+}
+
+.coin-data p:nth-of-type(3){
+    margin-top: 0;
+    margin-bottom: 0.8em;
+}
+
+.coin-data p span.legend{
+    font-weight: bold;
+}
+
+.pos {
+  color: #7cd382 !important;
+}
+
+.neg {
+  color: #e86666 !important;
+}
+
+img {
+  max-width: 75px;
+  padding-left: 20px;
+  padding-right: 0;
+}
+
+footer {
+  height: 75px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 25px 0px;
+  background: #141414;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer ul {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+footer ul li {
+  list-style-type: none;
+}
+footer ul a {
+  font-size: 1.5em;
+}
+footer ul i {
+  width: 1em;
+  padding: 0px 10px;
+  text-align: center;
+  color: #555;
+}
+footer ul i:hover {
+  color: #F8F8F8;
+}
+footer p {
+  color: #555 !important;
+  font-family: "Montserrat", sans-serif;
+}
+footer p span {
+  color: #555;
+}
