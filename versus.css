@@ -1,7 +1,6 @@
 .sides {
     animation: 0.7s curtain cubic-bezier(0.86, 0, 0.07, 1) 0.4s both;
-    display: grid;
-    grid-template-columns: 50vw 50vw;
+    width:100%;
 }
 
 @keyframes curtain {
@@ -30,37 +29,47 @@ body {
 
 .sides {
     position: relative;
+    margin-bottom: 10px;
 }
 
 .side {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     font-size: 6vw;
+    justify-content: center;
+    gap:20px;
 }
 
 .monkey {
+    padding-bottom: 40px;
     background-color: #dcc9a1;
     color: #534325;
 }
 
 .robot {
+    padding-top:40px;
     background-color: #1b636f;
     color: #ffffff;
     flex-direction: column-reverse;
 }
 
 .name {
-    margin: 0.3em;
+    margin: 0;
+    max-width: 330px;
 }
 
 .emoji {
+    display:flex;
+    align-items: center;
     font-size: 3em;
     transition: 1s;
 }
 
 .emoji img {
     max-width: 225px;
+    padding:0 !important;
 }
 
 .emoji:hover {
@@ -102,4 +111,17 @@ body {
 
 .versus span {
     transform: rotate(35deg);
+}
+
+@media (min-width:768px){
+    .sides {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .monkey{
+        padding:0;
+    }
+    .robot{
+        padding:0;
+    }
 }
