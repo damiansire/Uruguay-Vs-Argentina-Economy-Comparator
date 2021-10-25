@@ -1,23 +1,21 @@
 !(function(d) {
-    // Variables to target our base class,  get carousel items, count how many carousel items there are, set the slide to 0 (which is the number that tells us the frame we're on), and set motion to true which disables interactivity.
+    // Variables to target our base class,  get carousel items, count how many carousel items there are, set the slideFirst to 0 (which is the number that tells us the frame we're on), and set motion to true which disables interactivity.
     const itemClassName = "carousel__photo";
     const carouselPhotoWidth = document.getElementsByClassName("carousel__photo")[0].width;
     const carouselWidth = document.getElementsByClassName("carousel")[0].offsetWidth;
+    const carouselCapacity = 7
     items = d.getElementsByClassName(itemClassName),
         totalItems = items.length,
-        slide = 0,
+        slideFirst = 0,
         moving = true;
 
     // To initialise the carousel we'll want to update the DOM with our own classes
     function setInitialClasses() {
-
         // Target the last, initial, and next items and give them the relevant class.
         // This assumes there are three or more items.
-        items[totalItems - 1].classList.add("prev");
         for (let index = 0; index < 7; index++) {
             items[index].classList.add("active");
         }
-        items[7].classList.add("next");
     }
 
     // Set click events to navigation buttons
@@ -39,88 +37,45 @@
         }, 500);
     }
 
-    function moveCarouselTo(slide) {
-
-        // Check if carousel is moving, if not, allow interaction
-        if (!moving) {
-
-            // temporarily disable interactivity
-            disableInteraction();
-
-            // Preemptively set variables for the current next and previous slide, as well as the potential next or previous slide.
-            var newPrevious = slide - 1,
-                newNext = slide + 1,
-                oldPrevious = slide - 2,
-                oldNext = slide + 2;
-
-            // Test if carousel has more than three items
-            if ((totalItems - 1) > 3) {
-
-                // Checks if the new potential slide is out of bounds and sets slide numbers
-                if (newPrevious <= 0) {
-                    oldPrevious = (totalItems - 1);
-                } else if (newNext >= (totalItems - 1)) {
-                    oldNext = 0;
-                }
-
-                // Check if current slide is at the beginning or end and sets slide numbers
-                if (slide === 0) {
-                    newPrevious = (totalItems - 1);
-                    oldPrevious = (totalItems - 2);
-                    oldNext = (slide + 1);
-                } else if (slide === (totalItems - 1)) {
-                    newPrevious = (slide - 1);
-                    newNext = 0;
-                    oldNext = 1;
-                }
-
-                // Now we've worked out where we are and where we're going, by adding and removing classes, we'll be triggering the carousel's transitions.
-
-                // Based on the current slide, reset to default classes.
-                items[oldPrevious].className = itemClassName;
-                items[oldNext].className = itemClassName;
-
-                // Add the new classes
-                items[newPrevious].className = itemClassName + " prev";
-                items[slide].className = itemClassName + " active";
-                items[newNext].className = itemClassName + " next";
-            }
-        }
-    }
 
     // Next navigation handler
     function moveNext() {
-
         // Check if moving
         if (!moving) {
-
-            // If it's the last slide, reset to 0, else +1
-            if (slide === (totalItems - 1)) {
-                slide = 0;
-            } else {
-                slide++;
-            }
-
-            // Move carousel to updated slide
-            moveCarouselTo(slide);
+            slideFirst++;
+            slideFirst = slideFirst % totalItems;
+            // temporarily disable interactivity
+            disableInteraction();
+            //Obtengo el index de la anterior a slideFirst
+            const slidePrev = slideFirst !== 0 ? slideFirst - 1 : totalItems - 1;
+            //Removeme el elemento del carrusel
+            items[slidePrev].classList.remove("active");
+            //Hallo el index del nuevo item a agregar
+            const lastItemIndex = (slideFirst + carouselCapacity - 1) % totalItems;
+            //Lo hago visible
+            items[lastItemIndex].classList.add("active");
         }
     }
 
     // Previous navigation handler
     function movePrev() {
-
         // Check if moving
         if (!moving) {
 
-            // If it's the first slide, set as the last slide, else -1
-            if (slide === 0) {
-                slide = (totalItems - 1);
+            let slidePrev;
+            if (slideFirst === 0) {
+                slideFirst = totalItems - 1;
+                slidePrev = 6;
             } else {
-                slide--;
+                slideFirst--;
+                slidePrev = (slideFirst + carouselCapacity) % 14;
             }
 
-            // Move carousel to updated slide
-            moveCarouselTo(slide);
+            // temporarily disable interactivity
+            disableInteraction();
+
+            items[slidePrev].classList.remove("active");
+            items[slideFirst].classList.add("active");
         }
     }
 

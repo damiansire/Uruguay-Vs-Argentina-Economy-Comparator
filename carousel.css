@@ -35,6 +35,7 @@
     margin: auto;
     z-index: 100;
     transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
+    cursor: pointer;
 }
 
 
