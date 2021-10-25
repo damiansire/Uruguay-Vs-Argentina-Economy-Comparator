@@ -56,10 +56,16 @@ body {
 
 .emoji {
     font-size: 3em;
+    transition: 1s;
 }
 
 .emoji img {
     max-width: 225px;
+}
+
+.emoji:hover {
+    transform: scale(1.3);
+    transform: rotate( -13deg);
 }
 
 .versus {

@@ -103,7 +103,7 @@ body {
     color: #e86666 !important;
 }
 
-img {
+.card-container img {
     max-width: 75px;
     padding-left: 20px;
     padding-right: 0;

@@ -1,58 +1,119 @@
-.global {
-    position: relative;
-}
+/* Parent wrapper to carousel. Width can be changed as needed. */
 
-.btn {
-    position: absolute;
-    background-color: lightgrey;
-    transform: translate(0, -50%);
-    border-radius: 50%;
-    border: 1px solid lightcoral;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: grey;
-    border-color: black;
-    color: white;
-}
-
-.prev {
-    top: 50%;
-    left: 10px;
-}
-
-.next {
-    top: 50%;
-}
-
-.carousel-wrap {
-    position: relative;
-    background-color: NavajoWhite;
-    width: 100%;
-    height: 200px;
+.carousel-wrapper {
     overflow: hidden;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 3px;
 }
+
+
+/* Apply 'border-box' to 'box-sizing' so border and padding is included in the width and height. */
+
+.carousel-wrapper * {
+    box-sizing: border-box;
+}
+
+
+/* We'll be using the 'transform' property to move the carousel's items, so setting the 'transform-style' to 'preserve-3d' will make sure our nested elements are rendered properly in the 3D space. */
 
 .carousel {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 200px;
+    text-align-last: center;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
-.carousel-item {
-    float: left;
-    height: 200px;
-    width: 200px;
-    background-color: Cornsilk;
+
+/* By default we're hiding items (except the initial one) until the JS initiates. Elements are absolutely positioned with a width of 100% (as we're styling for mobile first), letting the content's height dictate the height of the carousel. Our magic property here for all our animation needs is 'transition', taking the properties we wish to animate 'transform' and 'opacity', along with the length of time in seconds. */
+
+.carousel__photo {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 13.8%;
+    margin: auto;
+    z-index: 100;
+    transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
+}
+
+
+/* Display the initial item and bring it to the front using 'z-index'. These styles also apply to the 'active' item. */
+
+.carousel__photo.initial,
+.carousel__photo.active {
+    opacity: 1;
+    position: relative;
+    z-index: 900;
+}
+
+
+/* Set 'z-index' to sit behind our '.active' item. */
+
+.carousel__photo.prev,
+.carousel__photo.next {
+    z-index: 800;
+}
+
+
+/* Translate previous item to the left */
+
+.carousel__photo.prev {
+    transform: translateX(-100%);
+}
+
+
+/* Translate next item to the right */
+
+.carousel__photo.next {
+    transform: translateX(100%);
+}
+
+
+/* Style navigation buttons to sit in the middle, either side of the carousel. */
+
+.carousel__button--prev,
+.carousel__button--next {
+    position: absolute;
+    top: 50%;
+    width: 3rem;
+    height: 3rem;
+    background-color: #fff;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1001;
+    /* Sit on top of everything */
     border: 1px solid black;
-    text-align: center;
-    padding-top: 80px;
-    font-size: 20px;
+    /*  opacity: 0;  Hide buttons until carousel is initialised 
+  transition:opacity 1s;*/
+}
+
+.carousel__button--prev {
+    left: 0;
+}
+
+.carousel__button--next {
+    right: 0;
+}
+
+
+/* Use pseudo elements to insert arrows inside of navigation buttons */
+
+.carousel__button--prev::after,
+.carousel__button--next::after {
+    content: " ";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 54%;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.carousel__button--next::after {
+    left: 47%;
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
