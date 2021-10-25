@@ -21,6 +21,7 @@
     text-align-last: center;
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
+    display:flex;
     transform-style: preserve-3d;
 }
 
