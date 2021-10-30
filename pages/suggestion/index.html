@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./form.css" rel="stylesheet" type="text/css">
+    <link href="./styles.css" rel="stylesheet" type="text/css">
+    <link href="../../style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <section id="formSection">
+        <div class="container">
+            <form id="suggestionForm">
+                <h3>Envia tu sugerencia</h3>
+                <h4>Esta pagina se mantiene gracias a sugerencias como la tuya!</h4>
+                <fieldset>
+                    <input name="articleName" placeholder="Nombre del articulo" type="text" tabindex="1" required autofocus>
+                </fieldset>
+                <fieldset>
+                    <input name="articlePrice" placeholder="Precio del articulo" type="text" tabindex="2" required>
+                </fieldset>
+                <fieldset>
+                    <input name="articleCountry" placeholder="Pais del articulo" type="tel" tabindex="3" required>
+                </fieldset>
+                <fieldset>
+                    <input name="articleUrl" placeholder="http:// fuente del precio" type="url" tabindex="4" required>
+                </fieldset>
+                <fieldset>
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Enviar sugerencia</button>
+                </fieldset>
+            </form>
+
+
+        </div>
+    </section>
+    <script src="./scripts.js"></script>
+</body>
+
+</html>
